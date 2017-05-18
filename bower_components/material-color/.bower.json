@@ -1,0 +1,45 @@
+{
+  "name": "material-color",
+  "description": "The colour palette, based on Google's Material Design, for use in your project",
+  "license": "MIT",
+  "authors": [
+    "Denis Malinochkin <dmalinochkin@rambler.ru> (www.canonium.com)"
+  ],
+  "homepage": "https://github.com/mrmlnc/material-color",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mrmlnc/material-color.git"
+  },
+  "keywords": [
+    "google",
+    "material",
+    "design",
+    "material-design",
+    "google-material-design",
+    "colors",
+    "color",
+    "less",
+    "sass",
+    "stylus"
+  ],
+  "main": [
+    "material-color.less",
+    "material-color.scss",
+    "material-color.styl"
+  ],
+  "ignore": [
+    "test",
+    "package.json"
+  ],
+  "version": "2.3.2",
+  "_release": "2.3.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.3.2",
+    "commit": "ca1514ad4b7ac61694c7a00f224880e17ed6d0ec"
+  },
+  "_source": "https://github.com/mrmlnc/material-color.git",
+  "_target": "^2.3.2",
+  "_originalSource": "material-color",
+  "_direct": true
+}

@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  margin: 0;
+}
+body {
+  margin: 0;
+  color: #5e5e5e;
+  line-height: 1.42857143;
+  background-color: #fff;
+  text-rendering: optimizeLegibility;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+.top_level_bar {
+  top: 0;
+  width: 100%;
+  height: 35px;
+  z-index: 999;
+  position: absolute;
+  display: flex;
+  display: -moz-flex;
+  display: -webkit-flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+.top_level_bar .container {
+  flex-direction: row;
+  display: flex;
+  display: -moz-flex;
+  display: -webkit-flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+}
+.top_level_bar .container p {
+  font-size: 12px;
+  color: #fff;
+  display: flex;
+  display: -moz-flex;
+  display: -webkit-flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+}
+.top_level_bar .container p i {
+  font-size: 14px;
+  color: #fff;
+  margin-right: 5px;
+}
+.top_level_bar .container .right_links {
+  margin-right: 10px;
+  margin-left: auto;
+}
+nav {
+  top: 35px;
+  z-index: 999;
+  box-shadow: none;
+  position: absolute;
+  display: flex;
+  display: -moz-flex;
+  display: -webkit-flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  background-color: transparent !important;
+}
+nav .brand-logo {
+  font-size: 1.5rem;
+}
+nav #nav-mobile li a {
+  font-size: .95rem;
+}
+.slider {
+  min-height: 365px;
+  height: 75% !important;
+}
+.slider .slides {
+  height: 100% !important;
+}
+.slider .slides .caption {
+  top: 40% !important;
+}
+.slider .slides .caption h3 {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.slider .slides .caption h5 {
+  opacity: .9;
+  margin-top: 8px;
+  font-weight: 400;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+.slider .slides .caption a {
+  margin-top: 30px;
+}
+.capitalize {
+  text-transform: capitalize;
+}
+.uppercase {
+  text-transform: uppercase;
+}

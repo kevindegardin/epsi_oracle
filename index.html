@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+    <title>EPSI - Oracle DB Project</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet"/>
+
+    <link href="bower_components/materialize/dist/css/materialize.min.css" rel="stylesheet"/>
+    <link href="bower_components/flexboxgrid/dist/flexboxgrid.min.css" rel="stylesheet"/>
+    <link href="bower_components/angular-loading-bar/build/loading-bar.css" rel="stylesheet"/>
+    <link href="assets/css/material_components.min.css" rel="stylesheet"/>
+    <link href="assets/css/material_admin.min.css" rel="stylesheet"/>
+
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.min.js"></script>
+  </head>
+  <body>
+    <div ng-app="app">
+      <header>
+        <div class="top_level_bar">
+          <div class="container">
+            <p><i class="material-icons">phone</i>0321713334</p>
+            <div class="right_links">
+              <p><i class="material-icons">account_circle</i>Se connecter</p>
+            </div>
+          </div>
+        </div>
+        <nav>
+          <div class="nav-wrapper container">
+            <a class="brand-logo hide-on-small-only">
+              City Tours
+            </a>
+            <a href="#" class="button-collapse" data-activates="nav-mobile" data-sidenav="left" data-menuwidth="300" data-closeonclick="true">
+              <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+              <li><a>Accueil</a></li>
+              <li><a>Voyages</a></li>
+            </ul>
+            <ul id="nav-mobile" class="side-nav">
+              <li><a>Accueil</a></li>
+              <li><a>Voyages</a></li>
+            </ul>
+          </div>
+        </nav>
+        <div class="slider" interval="4000" transition="1000" indicators="false" slider>
+          <ul class="slides">
+            <li>
+              <img src="assets/img/slide_1.jpg"> <!-- random image -->
+              <div class="caption center-align">
+                <h3>voyage à paris</h3>
+                <h5>découvrez la tour eiffel</h5>
+                <a class="waves-effect waves-light btn red accent-2">réserver</a>
+              </div>
+            </li>
+            <li>
+              <img src="assets/img/slide_2.jpg"> <!-- random image -->
+              <div class="caption center-align">
+                <h3>voyage à dubaï</h3>
+                <h5>découvrez les merveilles orientales</h5>
+                <a class="waves-effect waves-light btn red accent-2">réserver</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="ui" ui-view></div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-i18n/angular-locale_fr.js"></script>
+    <script type="text/javascript" src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="bower_components/angular-materialize/src/angular-materialize.js"></script>
+
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="app.run.js"></script>
+
+    <script type="text/javascript" src="components/home/home.controller.js"></script>
+  </body>
+</html>
