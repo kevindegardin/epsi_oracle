@@ -115,6 +115,47 @@ nav #nav-mobile li a {
 .slider .slides .caption a {
   margin-top: 30px;
 }
+.loginModal {
+  right: auto;
+  width: 300px;
+  max-width: 90%;
+}
+.loginModal .modal-content {
+  width: 100%;
+  padding: 0 !important;
+}
+.loginModal .modal-content .tabs {
+  flex-direction: row;
+  display: flex;
+  display: -moz-flex;
+  display: -webkit-flex;
+  position: static;
+  width: 100% !important;
+}
+.loginModal .modal-content .tabs .tab {
+  width: 50% !important;
+}
+.loginModal .modal-content .tabs .tab a {
+  padding: 0;
+}
+.loginModal .modal-content .tabs .indicator {
+  display: none;
+}
+.loginModal .modal-content form {
+  flex-direction: column;
+  display: flex;
+  display: -moz-flex;
+  display: -webkit-flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.loginModal .modal-content form input {
+  width: 100%;
+  margin: 4px 0;
+}
+.loginModal .modal-content form button {
+  margin-top: 30px;
+}
 .capitalize {
   text-transform: capitalize;
 }

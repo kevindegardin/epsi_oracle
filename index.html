@@ -24,7 +24,7 @@
           <div class="container">
             <p><i class="material-icons">phone</i>0321713334</p>
             <div class="right_links">
-              <p><i class="material-icons">account_circle</i>Se connecter</p>
+              <p data-target="loginModal" enable-tabs="true" modal><i class="material-icons">account_circle</i>Se connecter</p>
             </div>
           </div>
         </div>
@@ -46,7 +46,7 @@
             </ul>
           </div>
         </nav>
-        <div class="slider" interval="4000" transition="1000" indicators="false" slider>
+        <div class="slider" interval="5000" transition="1000" indicators="false" slider>
           <ul class="slides">
             <li>
               <img src="assets/img/slide_1.jpg"> <!-- random image -->
@@ -70,6 +70,44 @@
 
       <div class="content">
         <div class="ui" ui-view></div>
+      </div>
+
+      <!-- Modal Login / Signin -->
+      <div id="loginModal" class="modal loginModal">
+        <div class="modal-content">
+          <ul tabs>
+            <li class="tab"><a class="active" href="#login">Connexion</a></li>
+            <li class="tab"><a href="#signin">Inscription</a></li>
+          </ul>
+          <div id="login" class="col-lg-12">
+            <form>
+              <input-field>
+                <input type="text" placeholder="Adresse Mail">
+              </input-field>
+              <input-field>
+                <input type="password" placeholder="Mot de passe">
+              </input-field>
+              <button type="submit" class="waves-effect waves-light btn red accent-2">connexion</button>
+            </form>
+          </div>
+          <div id="signin" class="col-lg-12">
+            <form>
+              <input-field>
+                <input type="text" placeholder="Nom">
+              </input-field>
+              <input-field>
+                <input type="text" placeholder="Prénom">
+              </input-field>
+              <input-field>
+                <input type="text" placeholder="Adresse Mail">
+              </input-field>
+              <input-field>
+                <input type="password" placeholder="Mot de passe">
+              </input-field>
+              <button class="waves-effect waves-light btn red accent-2">inscription</button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
 

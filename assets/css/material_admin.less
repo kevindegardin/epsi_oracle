@@ -117,6 +117,50 @@ nav {
   }
 }
 
+// LOGIN MODAL
+.loginModal {
+  right: auto;
+  width: 300px;
+  max-width: 90%;
+
+  .modal-content {
+    width: 100%;
+    padding: 0 !important;
+
+    .tabs {
+      .flex__row;
+      position: static;
+      width: 100% !important;
+
+      .tab {
+        width: 50% !important;
+
+        a {
+          padding: 0;
+        }
+      }
+
+      .indicator {
+        display: none;
+      }
+    }
+
+    form {
+      .flex__column();
+      .flex_hori-center();
+
+      input {
+        width: 100%;
+        margin: 4px 0;
+      }
+
+      button {
+        margin-top: 30px;
+      }
+    }
+  }
+}
+
 // FUNCTIONS
 .capitalize {
   text-transform: capitalize;
@@ -139,12 +183,24 @@ nav {
   display: -webkit-flex;
 }
 
+.flex__column() {
+  flex-direction: column;
+  display:         flex;
+  display:    -moz-flex;
+  display: -webkit-flex;
+}
+
 .flex_vert-center() {
   display:         flex;
   display:    -moz-flex;
   display: -webkit-flex;
   -webkit-align-items: center;
      -moz-align-items: center;
+          align-items: center;
+}
+
+.flex_hori-center() {
+  -webkit-align-items: center;
           align-items: center;
 }
 
