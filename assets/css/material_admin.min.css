@@ -69,6 +69,7 @@ body {
   margin-right: 5px;
 }
 .top_level_bar .container .right_links {
+  cursor: pointer;
   margin-right: 10px;
   margin-left: auto;
 }
@@ -155,6 +156,20 @@ nav #nav-mobile li a {
 }
 .loginModal .modal-content form button {
   margin-top: 30px;
+}
+.landing_cards {
+  width: auto;
+  padding: 25px 80px;
+  padding-bottom: 5px;
+  background-color: #fff;
+}
+.landing_cards h3 {
+  font-size: 28px !important;
+  line-height: 36px !important;
+  letter-spacing: -0.6px !important;
+  padding-top: 40px !important;
+  padding-bottom: 15px !important;
+  color: #484848 !important;
 }
 .capitalize {
   text-transform: capitalize;
