@@ -11,6 +11,7 @@
   function ReservationController($scope,$http,$stateParams) {
 
     $scope.voyageurs = [{id: 'choice1'}];
+    $scope.prixtotal = [{}];
 
     $scope.addNewVoyageurs = function() {
       var newItemNo = $scope.voyageurs.length+1;
@@ -20,6 +21,11 @@
     $scope.removeVoyageurs = function() {
       var lastItem = $scope.voyageurs.length-1;
       $scope.voyageurs.splice(lastItem);
+    };
+
+    $scope.calculGrandTotal = function() {
+      var prixto = $scope.voyageurs.length * $scope.threeDestinations[0].PRIX ;
+      $scope.prixtotal = {prixto};
     };
 
     $scope.getDestinations = {};
@@ -37,6 +43,8 @@
           if(response.status == 200) {
             $scope.threeDestinations = response.data;
             console.log(response.data);
+            var prixto = response.data[0].PRIX;
+            $scope.prixtotal = {prixto};
           }
       },
       function errorCallback(response) {
