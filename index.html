@@ -24,8 +24,8 @@
           <div class="container">
             <p><i class="material-icons">phone</i>0321713334</p>
             <div class="right_links">
-              <p ng-if="isAuthenticated" data-target="loginModal" enable-tabs="true" modal><i class="material-icons">account_circle</i>Se connecter</p>
-              <p ng-if="!isAuthenticated"><i class="material-icons">account_circle</i>{{ userConnected.NOM }} {{ userConnected.PRENOM }}</p>
+              <p ng-if="!isAuthenticated" data-target="loginModal" enable-tabs="true" modal><i class="material-icons">account_circle</i>Se connecter</p>
+              <p ng-if="isAuthenticated"><i class="material-icons">account_circle</i>{{ userConnected[0].NOM }} {{ userConnected[0].PRENOM }}</p>
             </div>
           </div>
         </div>
@@ -88,7 +88,7 @@
               <input-field>
                 <input type="password" ng-model="userConnect.pwd" placeholder="Mot de passe">
               </input-field>
-              <button type="submit" class="waves-effect waves-light btn red accent-2">connexion</button>
+              <button type="submit" class="waves-effect waves-light btn red accent-2" ng-click="openModal = false">connexion</button>
             </form>
           </div>
           <div id="signin" class="col-lg-12">
