@@ -28,6 +28,24 @@
         url: 'http://localhost:5000/user_profiles/connect/' + $rootScope.userConnect.login + '/' + $rootScope.userConnect.pwd
       }, config);
     };
+
+    $rootScope.userInscription = {};
+
+    $rootScope.inscription = function(){
+
+      var config = {
+        headers: {
+          'Access-Control-Allow-Origin': '*'
+        }
+      }
+
+      $http({
+        method: 'POST',
+        url: 'http://localhost:5000/user_profiles/',
+        data: JSON.stringify($rootScope.userInscription)
+      }, config);
+
+    };
   }
 
 })();
