@@ -24,7 +24,9 @@
     };
 
     $scope.calculGrandTotal = function() {
-      var prixto = $scope.voyageurs.length * $scope.threeDestinations[0].PRIX ;
+      var totaltaxe = $scope.voyageurs.length * $scope.threeDestinations[0].PRIXVISITE;
+      var totalvoyage = $scope.voyageurs.length * $scope.threeDestinations[0].PRIX ;
+      var prixto = totaltaxe + totalvoyage;
       $scope.prixtotal = {prixto};
     };
 
@@ -42,8 +44,9 @@
       .then(function successCallback(response) {
           if(response.status == 200) {
             $scope.threeDestinations = response.data;
-            console.log(response.data);
-            var prixto = response.data[0].PRIX;
+            var totaltaxe = $scope.voyageurs.length * $scope.threeDestinations[0].PRIXVISITE;
+            var totalvoyage = $scope.voyageurs.length * $scope.threeDestinations[0].PRIX ;
+            var prixto = totaltaxe + totalvoyage;
             $scope.prixtotal = {prixto};
           }
       },

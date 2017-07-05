@@ -5,8 +5,14 @@
   <p>Durée : {{ destination.DUREE }} jours </p>
   
   <h3>Informations : </h3>
-  <p> Prix : {{ destination.PRIX }} euros </p>
+  <p> Prix de base HT : {{ destination.PRIX }} euros </p>
   <p> Places restante : {{ destination.NBRPLACEDISPONIBLES }} </p>
+
+  <h3> Etapes du voyage : </h3>
+  <p> Pays : {{ destination.PAYS }} </p>
+  <p> Ville : {{ destination.VILLE }} </p>
+  <p> Monument : {{ destination.NOMLIEUX}} </p>
+  <p> Durée de l'étape : {{ destination.DUREE }} </p>
 
   <h3> Réservation :  </h3>
     <fieldset  data-ng-repeat="choice in voyageurs">
@@ -21,6 +27,6 @@
       {{ choice }}
     </div>
 
-    <p> Prix total : {{ prixtotal.prixto }} euros</p><br/>
+    <p> Prix TTC * : {{ prixtotal.prixto }} euros (prix ttc : prix du voyage + prix des circuits)</p><br/>
     <a class="waves-effect waves-light btn">Réserver</a> 
 </div>
