@@ -38,30 +38,22 @@
               <i class="material-icons">menu</i>
             </a>
             <ul class="right hide-on-med-and-down">
-              <li><a>Accueil</a></li>
-              <li><a>Voyages</a></li>
+              <li><a href="#!/home">Accueil</a></li>
+              <li><a href="#!/voyages">Voyages</a></li>
             </ul>
             <ul id="nav-mobile" class="side-nav">
-              <li><a>Accueil</a></li>
-              <li><a>Voyages</a></li>
+              <li><a href="#!/home">Accueil</a></li>
+              <li><a href="#!/voyages">Voyages</a></li>
             </ul>
           </div>
         </nav>
-        <div class="slider" interval="5000" transition="1000" indicators="false" slider>
+        <div class="slider" interval="5000" transition="1000" indicators="false" slider ng-repeat="destination in threeDestinations">
           <ul class="slides">
             <li>
               <img src="assets/img/slide_1.jpg"> <!-- random image -->
               <div class="caption center-align">
-                <h3>voyage à paris</h3>
-                <h5>découvrez la tour eiffel</h5>
-                <a class="waves-effect waves-light btn red accent-2">réserver</a>
-              </div>
-            </li>
-            <li>
-              <img src="assets/img/slide_2.jpg"> <!-- random image -->
-              <div class="caption center-align">
-                <h3>voyage à dubaï</h3>
-                <h5>découvrez les merveilles orientales</h5>
+                <h3>voyage à {{ destination.VILLEDEPART }}</h3>
+                <h5>{{ destination.DESCRIPTIF}}</h5>
                 <a class="waves-effect waves-light btn red accent-2">réserver</a>
               </div>
             </li>
@@ -122,5 +114,7 @@
     <script type="text/javascript" src="app.run.js"></script>
 
     <script type="text/javascript" src="components/home/home.controller.js"></script>
+    <script type="text/javascript" src="components/reservation/reservation.controller.js"></script>
+    <script type="text/javascript" src="components/voyages/voyages.controller.js"></script>
   </body>
 </html>

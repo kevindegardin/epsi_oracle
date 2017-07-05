@@ -25,6 +25,12 @@
         controller: 'ReservationController',
         controllerAs: 'reservationController',
         templateUrl: 'components/reservation/reservation.html'
+      })
+      .state('/voyages', {
+        url: '/voyages',
+        controller: 'VoyagesController',
+        controllerAs: 'voyagesController',
+        templateUrl: 'components/voyages/voyages.html'
       });
 
     $urlRouterProvider.otherwise('/home');

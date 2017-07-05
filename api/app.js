@@ -16,7 +16,7 @@ var time = Date.now || function() {
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8888');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -389,6 +389,51 @@ app.get('/circuit/:VILLEDEPART',function (req,res){
           });
        });
 });
+
+
+/////////////////////
+// CIRCUIT A LA UNE
+////////////////////
+app.get('/one',function (req,res){
+  "use strict";
+
+  oracledb.getConnection(connAttrs, function(err,connection){
+    if(err){
+      res.set('Content-Type','application/json');
+      res.status(500).send(JSON.stringify({
+        status:500,
+        message: "Error connecting DB",
+        detailed_message: err.message
+      }));
+      return;
+    }
+
+    connection.execute("SELECT * FROM \"KAS-BDD\".CIRCUIT WHERE rownum<=1",{},{
+      outFormat: oracledb.OBJECT
+    }, function(err,result){
+        if(err){
+          res.set('Content-Type','application/json');
+          res.status(500).send(JSON.stringify({
+            status:500,
+            message: "Error getting Circuit",
+            detailed_message: err.message
+          }));
+        }else{
+          res.contentType('application/json').status(200);
+          res.send(JSON.stringify(result.rows));
+        }
+        connection.release(
+          function(err){
+            if(err){
+              console.log(err.message);
+            }else{
+              console.log("GET /Circuit : connection released");
+            }
+          });
+    });
+  });
+});
+
 
 /////////////////////
 // INSERT NEW CIRCUIT

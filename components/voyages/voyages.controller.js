@@ -4,11 +4,11 @@
 
   angular
     .module('app')
-    .controller('HomeController', HomeController);
+    .controller('VoyagesController', VoyagesController);
 
-  HomeController.$inject = ['$scope','$http'];
+  VoyagesController.$inject = ['$scope','$http'];
 
-  function HomeController($scope,$http) {
+  function VoyagesController($scope,$http) {
 
     $scope.getDestinations = {};
     var config = {
@@ -19,7 +19,7 @@
 
     $http({
         method: 'GET',
-        url: 'http://localhost:5000/threecircuit'
+        url: 'http://localhost:5000/circuit'
       }, config)
       .then(function successCallback(response) {
           if(response.status == 200) {
