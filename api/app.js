@@ -408,7 +408,51 @@ app.get('/circuitbyid/:IDCIRCUIT',function (req,res){
       return;
     }
 
-    connection.execute("SELECT C.IDCIRCUIT,C.DESCRIPTIF,C.VILLEDEPART,C.VILLEARRIVEE,C.DUREE,C.PRIX,C.DATEDEPART,C.NBRPLACEDISPONIBLES,E.DATEETAPE,E.DUREE,E.NOMLIEUX,E.VILLE,E.PAYS,L.PRIXVISITE FROM \"KAS-BDD\".CIRCUIT C, \"KAS-BDD\".ETAPES E, \"KAS-BDD\".LIEUX_TOURISTIQUE L WHERE C.IDCIRCUIT = :IDCIRCUIT AND E.IDCIRCUIT = :IDCIRCUIT AND E.NOMLIEUX = L.NOMLIEUX",[req.params.IDCIRCUIT],{
+    connection.execute("SELECT * FROM \"KAS-BDD\".CIRCUIT WHERE IDCIRCUIT = :IDCIRCUIT",[req.params.IDCIRCUIT],{
+        outFormat: oracledb.OBJECT
+    }, function(err,result){
+          if(err || result.rows.length <1){
+            res.set('Content-Type','application/json');
+            var status = err ? 500 : 404;
+            res.status(status).send(JSON.stringify({
+              status:status,
+              message: err ? "Error getting circuit" : "Circuit doesn't exist",
+              detailed_message: err ? err.message : ""
+            }));
+          }else{
+            res.contentType('application/json').status(200).send(JSON.stringify(result.rows));
+          }
+
+          connection.release(
+            function(err){
+              if(err){
+                console.log(err.message);
+              }else{
+                console.log("GET /circuit/"+req.params.IDCIRCUIT + " : connection released");
+              }
+            });
+          });
+       });
+});
+
+/////////////////////
+// GET ETAPES BY CIRCUIT ID
+////////////////////
+app.get('/etapesbycircuitid/:IDCIRCUIT',function (req,res){
+  "use strict";
+
+  oracledb.getConnection(connAttrs, function(err,connection){
+    if(err){
+      res.set('Content-Type','application/json');
+      res.status(500).send(JSON.stringify({
+        status:500,
+        message: "Error connecting DB",
+        detailed_message: err.message
+      }));
+      return;
+    }
+
+    connection.execute("SELECT E.DATEETAPE,E.DUREE,E.NOMLIEUX,E.VILLE,E.PAYS,L.PRIXVISITE FROM \"KAS-BDD\".ETAPES E, \"KAS-BDD\".LIEUX_TOURISTIQUE L WHERE E.IDCIRCUIT = :IDCIRCUIT AND E.NOMLIEUX = L.NOMLIEUX",[req.params.IDCIRCUIT],{
         outFormat: oracledb.OBJECT
     }, function(err,result){
           if(err || result.rows.length <1){

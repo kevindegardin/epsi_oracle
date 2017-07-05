@@ -7,13 +7,17 @@
   <h3>Informations : </h3>
   <p> Prix de base HT : {{ destination.PRIX }} euros </p>
   <p> Places restante : {{ destination.NBRPLACEDISPONIBLES }} </p>
-
   <h3> Etapes du voyage : </h3>
-  <p> Pays : {{ destination.PAYS }} </p>
-  <p> Ville : {{ destination.VILLE }} </p>
-  <p> Monument : {{ destination.NOMLIEUX}} </p>
-  <p> Durée de l'étape : {{ destination.DUREE }} </p>
+</div>
+<div class="landing_cards" ng-repeat="etape in etapes">
+  <p> Pays : {{ etape.PAYS }} </p>
+  <p> Ville : {{ etape.VILLE }} </p>
+  <p> Monument : {{ etape.NOMLIEUX}} </p>
+  <p> Durée de l'étape : {{ etape.DUREE }} heure(s) </p>
+  <p> Prix de l'étape : {{ etape.PRIXVISITE }} euros </p>
+</div>
 
+<div class="landing_cards">
   <h3> Réservation :  </h3>
     <fieldset  data-ng-repeat="choice in voyageurs">
         <input placeholder="Nom du voyageur" id="first_name" type="text" class="validate">    

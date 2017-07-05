@@ -26,7 +26,6 @@
       .then(function successCallback(response) {
           if(response.status == 200) {
             $rootScope.threeDestinations = response.data;
-            console.log(response.data);
           }
       },
       function errorCallback(response) {
@@ -37,7 +36,6 @@
 
     $rootScope.connect = function() {
 
-      console.log($rootScope.userConnect);
 
       console.log('http://localhost:5000/user_profiles/connect/' + $rootScope.userConnect.login + '/' + $rootScope.userConnect.pwd);
 
@@ -55,8 +53,6 @@
           if(response.status == 200) {
             $rootScope.isAuthenticated = true;
             $rootScope.userConnected = response.data;
-
-            console.log(response.data);
           }
       },
       function errorCallback(response) {
