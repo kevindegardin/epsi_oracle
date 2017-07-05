@@ -9,8 +9,13 @@
   run.$inject = ['$rootScope', '$location', '$http'];
 
   function run($rootScope, $location, $http) {
+    $rootScope.userConnect = {};
+
     $rootScope.connect = function() {
+
       console.log($rootScope.userConnect);
+
+      console.log('http://localhost:5000/user_profiles/connect/' + $rootScope.userConnect.login + '/' + $rootScope.userConnect.pwd);
 
       var config = {
         headers: {
@@ -20,7 +25,7 @@
 
       $http({
         method: 'GET',
-        url: 'http://localhost:5000/user_profiles/connect/test/test'
+        url: 'http://localhost:5000/user_profiles/connect/' + $rootScope.userConnect.login + '/' + $rootScope.userConnect.pwd
       }, config);
     };
   }

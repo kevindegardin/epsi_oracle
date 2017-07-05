@@ -24,7 +24,8 @@
           <div class="container">
             <p><i class="material-icons">phone</i>0321713334</p>
             <div class="right_links">
-              <p data-target="loginModal" enable-tabs="true" modal><i class="material-icons">account_circle</i>Se connecter</p>
+              <p ng-if="isAuthenticated" data-target="loginModal" enable-tabs="true" modal><i class="material-icons">account_circle</i>Se connecter</p>
+              <p ng-if="!isAuthenticated"><i class="material-icons">account_circle</i>{{ userConnected.NOM }} {{ userConnected.PRENOM }}</p>
             </div>
           </div>
         </div>
