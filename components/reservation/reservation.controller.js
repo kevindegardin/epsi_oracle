@@ -49,9 +49,7 @@
       .then(function successCallback(response) {
           if(response.status == 200) {
             $scope.threeDestinations = response.data;
-            $scope.prixvoyage = $scope.threeDestinations;
-
-            
+            $scope.prixvoyage = $scope.threeDestinations;   
           }
       },
       function errorCallback(response) {
