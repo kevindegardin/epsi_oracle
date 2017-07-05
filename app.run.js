@@ -10,6 +10,7 @@
 
   function run($rootScope, $location, $http) {
     $rootScope.userConnect = {};
+    $rootScope.userInscription = {};
 
     $rootScope.connect = function() {
 
@@ -41,13 +42,22 @@
       });
     };
 
-    $rootScope.userInscription = {};
+    $rootScope.disconnect = function() {
+      $rootScope.isAuthenticated = false;
+    }
 
-    $rootScope.inscription = function(){
+    $rootScope.inscription = function() {
+
+      $rootScope.userInscription.IDPERSONNE = 200;
+      $rootScope.userInscription.DATENAISSANCE = "2017/07/05";
+      $rootScope.userInscription.ROLE = "client";
+
+      console.log($rootScope.userInscription);
 
       var config = {
         headers: {
-          'Access-Control-Allow-Origin': '*'
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json'
         }
       }
 
