@@ -1,11 +1,11 @@
-<div class="landing_cards">
+<div class="landing_cards" ng-repeat="destination in threeDestinations">
   <h3>Réserver votre voyage pour {{ destination.VILLEARRIVEE }}</h3>
   <p>Ville de départ : {{ destination.VILLEDEPART }}</p>
   <p>Date de départ : {{ destination.DATEDEPART}} </p>
-  <p>Durée : {{ destination.DUREE }} </p>
+  <p>Durée : {{ destination.DUREE }} jours </p>
   
   <h3>Informations : </h3>
-  <p> Prix : {{ destination.PRIX }} </p>
+  <p> Prix : {{ destination.PRIX }} euros </p>
   <p> Places restante : {{ destination.NBRPLACEDISPONIBLES }} </p>
 
   <h3> Réservation :  </h3>

@@ -10,6 +10,8 @@
 
   function VoyagesController($scope,$http) {
 
+  
+
     $scope.getDestinations = {};
     var config = {
         headers: {

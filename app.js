@@ -20,8 +20,8 @@
         controllerAs: 'homeController',
         templateUrl: 'components/home/home.html'
       })
-      .state('/reservation', {
-        url: '/reservation',
+      .state('/reservation/:id', {
+        url: '/reservation/:id',
         controller: 'ReservationController',
         controllerAs: 'reservationController',
         templateUrl: 'components/reservation/reservation.html'
