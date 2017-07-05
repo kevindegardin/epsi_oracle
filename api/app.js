@@ -144,9 +144,8 @@ app.get('/user_profiles/:LOGIN',function (req,res){
 ////////////////////
 app.post('/user_profiles',function(req,res){
   "use strict";
-
   console.log(req.get('Content-Type'));
-  if("application/json;charset=UTF-8" !== req.get('Content-Type')){
+  if("application/json" !== req.get('Content-Type')){
     res.set('Content-Type','application/json').status(415).send(JSON.stringify({
       status: 415,
       message: "Wrong content type. Only application/json accepted",
@@ -279,6 +278,50 @@ app.get('/circuit',function (req,res){
     }
 
     connection.execute("SELECT * FROM \"KAS-BDD\".CIRCUIT",{},{
+      outFormat: oracledb.OBJECT
+    }, function(err,result){
+        if(err){
+          res.set('Content-Type','application/json');
+          res.status(500).send(JSON.stringify({
+            status:500,
+            message: "Error getting Circuit",
+            detailed_message: err.message
+          }));
+        }else{
+          res.contentType('application/json').status(200);
+          res.send(JSON.stringify(result.rows));
+        }
+        connection.release(
+          function(err){
+            if(err){
+              console.log(err.message);
+            }else{
+              console.log("GET /Circuit : connection released");
+            }
+          });
+    });
+  });
+});
+
+
+/////////////////////
+// GET 3 CIRCUITS
+////////////////////
+app.get('/threecircuit',function (req,res){
+  "use strict";
+
+  oracledb.getConnection(connAttrs, function(err,connection){
+    if(err){
+      res.set('Content-Type','application/json');
+      res.status(500).send(JSON.stringify({
+        status:500,
+        message: "Error connecting DB",
+        detailed_message: err.message
+      }));
+      return;
+    }
+
+    connection.execute("SELECT * FROM \"KAS-BDD\".CIRCUIT LIMIT 3",{},{
       outFormat: oracledb.OBJECT
     }, function(err,result){
         if(err){
