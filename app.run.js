@@ -32,8 +32,6 @@
             $rootScope.isAuthenticated = true;
             $rootScope.userConnected = response.data;
 
-            $("modal").closeModal();
-
             console.log(response.data);
           }
       },
