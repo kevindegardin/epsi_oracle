@@ -9,10 +9,18 @@
   <p> Places restante : {{ destination.NBRPLACEDISPONIBLES }} </p>
 
   <h3> Réservation :  </h3>
-    <input placeholder="Nombre de places" id="first_name" type="text" class="validate">
-    <input placeholder="Nom du premier voyageur" id="first_name" type="text" class="validate">    
-    <input placeholder="Prenom du premier voyageur" id="first_name" type="text" class="validate"> 
-    <input placeholder="Date de naissance du premier voyageur" id="first_name" type="text" class="validate">
+    <fieldset  data-ng-repeat="choice in voyageurs">
+        <input placeholder="Nom du voyageur" id="first_name" type="text" class="validate">    
+        <input placeholder="Prenom du voyageur" id="first_name" type="text" class="validate"> 
+        <input placeholder="Date de naissance du voyageur" id="first_name" type="text" class="validate">
+        <button ng-click="addNewVoyageurs()">Ajouter un voyageur</button>
+        <button class="remove" ng-show="voyageurs.length > 1" ng-click="removeVoyageurs()">Supprimer ce voyageur</button>
+    </fieldset>  
+
+    <div id="choicesDisplay">
+      {{ choice }}
+    </div>
+
     <p> Prix total : </p><br/>
     <a class="waves-effect waves-light btn">Réserver</a> 
 </div>

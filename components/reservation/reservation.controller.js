@@ -10,7 +10,17 @@
 
   function ReservationController($scope,$http,$stateParams) {
 
-    console.log($stateParams);
+    $scope.voyageurs = [{id: 'choice1'}];
+
+    $scope.addNewVoyageurs = function() {
+      var newItemNo = $scope.voyageurs.length+1;
+      $scope.voyageurs.push({'id':'choice'+newItemNo});
+    };
+
+    $scope.removeVoyageurs = function() {
+      var lastItem = $scope.voyageurs.length-1;
+      $scope.voyageurs.splice(lastItem);
+    };
 
     $scope.getDestinations = {};
     var config = {
