@@ -1,6 +1,18 @@
 <div class="landing_cards">
   <h3>Réserver votre voyage pour {{ destination.VILLEARRIVEE }}</h3>
-  <div class="row">
-    
-  </div>
+  <p>Ville de départ : {{ destination.VILLEDEPART }}</p>
+  <p>Date de départ : {{ destination.DATEDEPART}} </p>
+  <p>Durée : {{ destination.DUREE }} </p>
+  
+  <h3>Informations : </h3>
+  <p> Prix : {{ destination.PRIX }} </p>
+  <p> Places restante : {{ destination.NBRPLACEDISPONIBLES }} </p>
+
+  <h3> Réservation :  </h3>
+    <input placeholder="Nombre de places" id="first_name" type="text" class="validate">
+    <input placeholder="Nom du premier voyageur" id="first_name" type="text" class="validate">    
+    <input placeholder="Prenom du premier voyageur" id="first_name" type="text" class="validate"> 
+    <input placeholder="Date de naissance du premier voyageur" id="first_name" type="text" class="validate">
+    <p> Prix total : </p><br/>
+    <a class="waves-effect waves-light btn">Réserver</a> 
 </div>
