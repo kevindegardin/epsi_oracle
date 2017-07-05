@@ -16,6 +16,7 @@
           'Access-Control-Allow-Origin': '*'
         }
     }
+    console.log('ok');
 
     $http({
         method: 'GET',
@@ -23,7 +24,7 @@
       }, config)
       .then(function successCallback(response) {
           if(response.status == 200) {
-            $scope.getDestinations = response.data;
+            $scope.threeDestinations = response.data;
             console.log(response.data);
           }
       },

@@ -321,7 +321,7 @@ app.get('/threecircuit',function (req,res){
       return;
     }
 
-    connection.execute("SELECT * FROM \"KAS-BDD\".CIRCUIT LIMIT 3",{},{
+    connection.execute("SELECT * FROM \"KAS-BDD\".CIRCUIT WHERE rownum<=3",{},{
       outFormat: oracledb.OBJECT
     }, function(err,result){
         if(err){

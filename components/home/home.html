@@ -1,48 +1,15 @@
 <div class="landing_cards">
   <h3>Destinations à la une</h3>
   <div class="row">
-    <div class="col-lg-4">
+    <div class="col-lg-4" ng-repeat="destination in threeDestinations">
       <div class="card blue-grey darken-1">
         <div class="card-content white-text">
-          <span class="card-title">Card Title</span>
-          <p>
-            I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.
-          </p>
+          <span class="card-title">{{ destination.VILLEDEPART }}</span>
+          <p>{{ destination.DESCRIPTIF }}</p>
         </div>
         <div class="card-action">
-          <a href="#">This is a link</a>
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-          <span class="card-title">Card Title</span>
-          <p>
-            I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.
-          </p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-          <span class="card-title">Card Title</span>
-          <p>
-            I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.
-          </p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-          <a href="#">This is a link</a>
+          <a>Prix: {{ destination.PRIX }}€</a>
+          <a href="">Réserver</a>
         </div>
       </div>
     </div>

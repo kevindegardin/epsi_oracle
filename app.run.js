@@ -44,6 +44,7 @@
 
     $rootScope.disconnect = function() {
       $rootScope.isAuthenticated = false;
+      $rootScope.userConnected = {};
     }
 
     $rootScope.inscription = function() {
