@@ -577,12 +577,58 @@ app.post('/circuit',function(req,res){
 });
 
 /////////////////////
-// INSERT NEW RESERVATION - PAS ENCORE CODÉ
+// INSERT NEW PASSAGER
 /////////////////////
-// Fonction pour réserver : 
-// Récuperer nom,prenom, date de naissance saisie + générer un id -> l'insérer en BDD
-// Table reservation : générer id reservation, générer date reservation, nobmre place reservé, id personne reservé, idcircuit
 
+app.post('/newpassager',function(req,res){
+  "use strict";
+  if("application/json" !== req.get('Content-Type')){
+    res.set('Content-Type','application/json').status(415).send(JSON.stringify({
+      status: 415,
+      message: "Wrong content type. Only application/json accepted",
+      detailed_message: null
+    }));
+    return;
+  }
+
+  oracledb.getConnection(connAttrs, function(err,connection){
+    if(err){
+      res.set('Content-Type','application/json').status(500).send(JSON.stringify({
+        status: 500,
+        message: "Error connecting to db",
+        detailed_message: err.message
+      }));
+      return;
+    }
+
+    connection.execute("INSERT INTO \"KAS-BDD\".PASSAGER VALUES(:IDPERSONNE,:NOM,:PRENOM,TO_DATE(:DATENAISSANCE,'yyyy/mm/dd')", [req.body.IDPERSONNE,req.body.NOM, req.body.PRENOM, req.body.DATENAISSANCE],{
+      autoCommit: true,
+      outFormat: oracledb.OBJECT
+    },
+    function(err,result){
+      if(err){
+        res.set('Content-Type','application/json');
+        res.status(400).send(JSON.stringify({
+          statuts: 400,
+          message: err.message.indexOf("ORA-00001") > 1 ? "Passager already exists" : "Input Error",
+          detailed_message: err.message
+        }));
+      }
+      connection.release(
+        function(err){
+          if(err){
+            console.error(err.message);
+          }else{
+            console.log("POST /newpassager : connection released");
+          }
+      });
+    });
+  })
+});
+
+/////////////////////
+// INSERT NEW RESERVATION
+/////////////////////
 
 app.post('/newreservation',function(req,res){
   "use strict";
@@ -605,7 +651,7 @@ app.post('/newreservation',function(req,res){
       return;
     }
 
-    connection.execute("INSERT INTO \"KAS-BDD\".CIRCUIT VALUES(:IDCIRCUIT,:DESCRIPTIF,:VILLEDEPART,:VILLEARRIVEE,:DUREE,:PRIX,TO_DATE(:DATEDEPART,'yyyy/mm/dd'),:NBRPLACEDISPONIBLES)", [req.body.IDCIRCUIT,req.body.DESCRIPTIF, req.body.VILLEDEPART, req.body.VILLEARRIVEE, req.body.DUREE,req.body.PRIX,req.body.DATEDEPART,req.body.NBRPLACEDISPONIBLES],{
+    connection.execute("INSERT INTO \"KAS-BDD\".RESERVATION VALUES(:IDRESERVATION,TO_DATE(:DATERESERVATION,'yyyy/mm/dd'),:NBRPLACERESERVEES,:IDPERSONNE,:IDCIRCUIT", [req.body.IDRESERVATION,req.body.DATERESERVATION, req.body.NBRPLACERESERVEES, req.body.IDPERSONNE, req.body.IDCIRCUIT],{
       autoCommit: true,
       outFormat: oracledb.OBJECT
     },
@@ -614,19 +660,16 @@ app.post('/newreservation',function(req,res){
         res.set('Content-Type','application/json');
         res.status(400).send(JSON.stringify({
           statuts: 400,
-          message: err.message.indexOf("ORA-00001") > 1 ? "Circuit already exists" : "Input Error",
+          message: err.message.indexOf("ORA-00001") > 1 ? "Reservation already exists" : "Input Error",
           detailed_message: err.message
         }));
-      }
-      else{
-        res.status(201).set('Location','/circuit/'+req.body.VILLEDEPART).end();
       }
       connection.release(
         function(err){
           if(err){
             console.error(err.message);
           }else{
-            console.log("POST /circuit : connection released");
+            console.log("POST /reservation : connection released");
           }
       });
     });
@@ -638,7 +681,7 @@ app.post('/newreservation',function(req,res){
 process.on( 'SIGINT', function() {
   console.log( "\nGracefully shutting down from SIGINT (Ctrl-C)" );
   // some other closing procedures go here
-  process.exit( );
+  process.exit();
 })
 
  var port = process.env.PORT || 5000;

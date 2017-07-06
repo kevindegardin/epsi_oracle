@@ -3,7 +3,7 @@
   <p>Ville de départ : {{ destination.VILLEDEPART }}</p>
   <p>Date de départ : {{ destination.DATEDEPART}} </p>
   <p>Durée : {{ destination.DUREE }} jours </p>
-  
+
   <h3>Informations : </h3>
   <p> Prix de base HT : {{ destination.PRIX }} euros </p>
   <p> Places restante : {{ destination.NBRPLACEDISPONIBLES }} </p>
@@ -19,18 +19,8 @@
 
 <div class="landing_cards">
   <h3> Réservation :  </h3>
-    <fieldset  data-ng-repeat="choice in voyageurs">
-        <input placeholder="Nom du voyageur" id="first_name" type="text" class="validate">    
-        <input placeholder="Prenom du voyageur" id="first_name" type="text" class="validate"> 
-        <input placeholder="Date de naissance du voyageur" id="first_name" type="text" class="validate">
-        <button ng-click="addNewVoyageurs(); calculGrandTotal()">Ajouter un voyageur</button>
-        <button class="remove" ng-show="voyageurs.length > 1" ng-click="removeVoyageurs(); calculGrandTotal()">Supprimer ce voyageur</button>
-    </fieldset>  
-
-    <div id="choicesDisplay">
-      {{ choice }}
-    </div>
+  
 
     <p> Prix TTC * : {{ prixtotal.prixto }} euros (prix ttc : prix du voyage + prix des circuits)</p><br/>
-    <a class="waves-effect waves-light btn">Réserver</a> 
+    <button ng-click="processReservation();" class="waves-effect waves-light btn">Réserver</button>
 </div>
