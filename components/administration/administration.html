@@ -39,10 +39,9 @@
     <div ng-show = "IsVisibleDeleteUser">
       <p> Supprimer un utilisateur </p>
       <div input-field>
-        <select class="" ng-model="select.value1" material-select watch>
+        <select ng-model="select" watch class=""  material-select>
           <option value="{{ value.IDPERSONNE }}" ng-repeat="value in threeDestinations">{{value.NOM}} {{ value.PRENOM }}</option>
         </select>
-              <p>{{select.value1}}</p>
       </div>
       <button type="submit" ng-click="confirmDelete()" class="waves-effect waves-light btn red accent-2">Supprimer l'utilisateur</button>
     </div>

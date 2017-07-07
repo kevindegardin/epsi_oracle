@@ -6,9 +6,12 @@
     .module('app')
     .controller('AdministrationController', AdministrationController);
 
-  AdministrationController.$inject = ['$scope','$http'];
+  AdministrationController.$inject = ['$scope','$http','$rootScope'];
 
-  function AdministrationController($scope,$http) {
+  function AdministrationController($scope,$http,$rootScope) {
+
+    $scope.select = {};
+    $scope.userInscription = {};
 
     // BUTTONS
     $scope.IsVisibleUsers = false;
@@ -26,6 +29,28 @@
       $scope.IsVisibleAddUser = $scope.IsVisibleAddUser ? false : true;
       $scope.IsVisibleUsers = false;
     }
+
+    $scope.inscription = function() {
+      $scope.userInscription.IDPERSONNE = Math.floor((Math.random() * 500)+50)
+      $scope.userInscription.DATENAISSANCE = "2017/07/05";
+      $scope.userInscription.ROLE = "client";
+
+      console.log($scope.userInscription);
+
+      var config = {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json'
+        }
+      }
+
+      $http({
+        method: 'POST',
+        url: 'http://localhost:5000/user_profiles/',
+        data: JSON.stringify($scope.userInscription)
+      }, config);
+
+    };
 
     $scope.deleteUsers = function () {
       //If DIV is visible it will be hidden and vice versa.
@@ -56,7 +81,7 @@
 
     $scope.confirmDelete = function() {
       console.log('confirme delete');
+      console.log($scope.select);
     }
-
   };
 })();
