@@ -1,22 +1,22 @@
-<div class="container">
+<div class="container reservation_container">
   <div ng-repeat="destination in threeDestinations">
     <h2>Votre voyage pour {{ destination.VILLEARRIVEE }}</h2>
 
     <div class="row">
       <div class="col l3 m4 s12">
-        <p>Ville de départ: {{ destination.VILLEDEPART }}</p>
+        <p>Ville de départ: <span>{{ destination.VILLEDEPART }}</span></p>
       </div>
       <div class="col l3 m4 s12">
-        <p>Date de départ: {{ destination.DATEDEPART | date : 'dd/MM/yyyy'}}</p>
+        <p>Date de départ: <span>{{ destination.DATEDEPART | date : 'dd/MM/yyyy'}}</span></p>
       </div>
       <div class="col l3 m4 s12">
-        <p>Durée: {{ destination.DUREE }} jours</p>
+        <p>Durée: <span>{{ destination.DUREE }} jours</span></p>
       </div>
       <div class="col l3 m4 s12">
-        <p>Places restante: {{ destination.NBRPLACEDISPONIBLES }}</p>
+        <p>Places restante: <span>{{ destination.NBRPLACEDISPONIBLES }}</span></p>
       </div>
       <div class="col l3 m4 s12">
-        <p>Prix de base HT: {{ destination.PRIX }}€</p>
+        <p>Prix de base HT: <span>{{ destination.PRIX }}€</span></p>
       </div>
     </div>
 
@@ -27,13 +27,13 @@
     <h3>Étapes du voyage</h3>
     <div class="row">
       <div class="col l4 m6 s12" ng-repeat="etape in etapes">
-        <div class="card-panel teal">
+        <div class="card-panel red lighten-1">
           <span class="white-text">
-            <p> Pays : {{ etape.PAYS }} </p>
-            <p> Ville : {{ etape.VILLE }} </p>
-            <p> Monument : {{ etape.NOMLIEUX}} </p>
-            <p> Durée de l'étape : {{ etape.DUREE }} heure(s) </p>
-            <p> Prix de l'étape : {{ etape.PRIXVISITE }} euros </p>
+            <p>Pays: <span>{{ etape.PAYS }}</span></p>
+            <p>Ville: <span>{{ etape.VILLE }}</span></p>
+            <p>Monument: <span>{{ etape.NOMLIEUX}}</span></p>
+            <p>Durée de l'étape: <span>{{ etape.DUREE }} heure(s)</span></p>
+            <p>Prix de l'étape: <span>{{ etape.PRIXVISITE }}€</span></p>
           </span>
         </div>
       </div>
