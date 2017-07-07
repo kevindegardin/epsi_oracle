@@ -602,7 +602,7 @@ app.post('/newpassager',function(req,res){
       return;
     }
 
-    connection.execute("INSERT INTO \"KAS-BDD\".PASSAGER VALUES(:IDPERSONNE,:NOM,:PRENOM,TO_DATE(:DATENAISSANCE,'yyyy/mm/dd')", [req.body.IDPERSONNE,req.body.NOM, req.body.PRENOM, req.body.DATENAISSANCE],{
+    connection.execute("INSERT INTO \"KAS-PROJET-BDD\".PASSAGER(IDPERSONNE,NOM,PRENOM,DATENAISSANCE) VALUES(:IDPERSONNE,:NOM,:PRENOM,TO_DATE(:DATENAISSANCE,'mm/dd/yyyy'))", [req.body.IDPERSONNE,req.body.NOM, req.body.PRENOM, req.body.DATENAISSANCE],{
       autoCommit: true,
       outFormat: oracledb.OBJECT
     },
