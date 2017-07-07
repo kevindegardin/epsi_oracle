@@ -1,0 +1,51 @@
+<div class="landing_cards">
+  <h3>Administration</h3>
+  <div class="row">
+    <a class="waves-effect waves-light btn red accent-2" ng-click="ShowHideUsers()" >Utilisateurs</a>
+    <a class="waves-effect waves-light btn red accent-2">Réservation</a>
+    <a class="waves-effect waves-light btn red accent-2">Voyages</a>
+    <a class="waves-effect waves-light btn red accent-2">Etapes</a>
+  </div>
+  <div class="row">
+    <div ng-show = "IsVisibleUsers">
+      <a class="waves-effect waves-light btn red accent-2" ng-click="addUsers()">Ajouter un utilisateur</a>
+      <a class="waves-effect waves-light btn red accent-2" ng-click="deleteUsers()">Supprimer un utilisateur</a>
+    </div>
+  </div>
+  <div class="row">
+    <div ng-show = "IsVisibleAddUser">
+      <p> Ajouter un utilisateur </p>
+      <div class="col-lg-12">
+        <form ng-submit="inscription()">
+          <input-field>
+            <input type="text" ng-model="userInscription.NOM" placeholder="Nom" required>
+          </input-field>
+          <input-field>
+            <input type="text" ng-model="userInscription.PRENOM" placeholder="Prénom" required>
+          </input-field>
+          <input-field>
+            <input type="text" ng-model="userInscription.LOGIN" placeholder="Identifiant" required>
+          </input-field>
+          <input-field>
+            <input type="password" ng-model="userInscription.MDP" placeholder="Mot de passe" required>
+          </input-field>
+          <button type="submit" class="waves-effect waves-light btn red accent-2">Ajouter l'utilisateur</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div ng-show = "IsVisibleDeleteUser">
+      <p> Supprimer un utilisateur </p>
+      <div input-field>
+        <select class="" ng-model="select.value1" material-select watch>
+          <option value="{{ value.IDPERSONNE }}" ng-repeat="value in threeDestinations">{{value.NOM}} {{ value.PRENOM }}</option>
+        </select>
+              <p>{{select.value1}}</p>
+      </div>
+      <button type="submit" ng-click="confirmDelete()" class="waves-effect waves-light btn red accent-2">Supprimer l'utilisateur</button>
+    </div>
+  </div>
+
+</div>

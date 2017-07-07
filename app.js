@@ -28,6 +28,12 @@
         controller: 'VoyagesController',
         controllerAs: 'voyagesController',
         templateUrl: 'components/voyages/voyages.html'
+      })
+      .state('/administration', {
+        url: '/administration',
+        controller: 'AdministrationController',
+        controllerAs: 'AdministrationController',
+        templateUrl: 'components/administration/administration.html'
       });
 
     $urlRouterProvider.otherwise('/home');
