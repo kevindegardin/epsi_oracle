@@ -582,7 +582,8 @@ app.post('/circuit',function(req,res){
 
 app.post('/newpassager',function(req,res){
   "use strict";
-  if("application/json" !== req.get('Content-Type')){
+  console.log(req.get('Content-Type'));
+  if("application/json;charset=UTF-8" !== req.get('Content-Type')){
     res.set('Content-Type','application/json').status(415).send(JSON.stringify({
       status: 415,
       message: "Wrong content type. Only application/json accepted",

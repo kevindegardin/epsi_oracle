@@ -1,22 +1,47 @@
-<div class="landing_cards" ng-repeat="destination in threeDestinations">
-  <h3>Réserver votre voyage pour {{ destination.VILLEARRIVEE }}</h3>
-  <p>Ville de départ : {{ destination.VILLEDEPART }}</p>
-  <p>Date de départ : {{ destination.DATEDEPART}} </p>
-  <p>Durée : {{ destination.DUREE }} jours </p>
+<div class="container">
+  <div ng-repeat="destination in threeDestinations">
+    <h2>Votre voyage pour {{ destination.VILLEARRIVEE }}</h2>
 
-  <h3>Informations : </h3>
-  <p> Prix de base HT : {{ destination.PRIX }} euros </p>
-  <p> Places restante : {{ destination.NBRPLACEDISPONIBLES }} </p>
-  <h3> Etapes du voyage : </h3>
-</div>
-<div class="landing_cards" ng-repeat="etape in etapes">
-  <p> Pays : {{ etape.PAYS }} </p>
-  <p> Ville : {{ etape.VILLE }} </p>
-  <p> Monument : {{ etape.NOMLIEUX}} </p>
-  <p> Durée de l'étape : {{ etape.DUREE }} heure(s) </p>
-  <p> Prix de l'étape : {{ etape.PRIXVISITE }} euros </p>
-</div>
+    <div class="row">
+      <div class="col-lg-3 col-md-4 col-xs-12">
+        <div class="card-panel teal">
+          <span class="white-text">
+            <p>Ville de départ : {{ destination.VILLEDEPART }}</p>
+            <p>Date de départ : {{ destination.DATEDEPART}} </p>
+            <p>Durée : {{ destination.DUREE }} jours </p>
 
+            <div class="divider"></div>
+
+            <p> Prix de base HT : {{ destination.PRIX }} euros </p>
+            <p> Places restante : {{ destination.NBRPLACEDISPONIBLES }} </p>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+
+    </div>
+
+    <h3>Étapes du voyage</h3>
+    <div class="row">
+      <div class="col-lg-3 s12 m5" ng-repeat="etape in etapes">
+        <div class="card-panel teal">
+          <span class="white-text">
+            <p> Pays : {{ etape.PAYS }} </p>
+            <p> Ville : {{ etape.VILLE }} </p>
+            <p> Monument : {{ etape.NOMLIEUX}} </p>
+            <p> Durée de l'étape : {{ etape.DUREE }} heure(s) </p>
+            <p> Prix de l'étape : {{ etape.PRIXVISITE }} euros </p>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3> Réservation :  </h3>
+
+<<<<<<< Updated upstream
 <div class="landing_cards">
   <h3> Réservation :  </h3>
   <table>
@@ -27,7 +52,11 @@
     </tr>
   </table>
     <button type="button" ng-click="addRow()">Ajouter un voyageur</button>
+=======
+>>>>>>> Stashed changes
 
-    <p> Prix TTC * : {{ prixtotal.prixto }} euros (prix ttc : prix du voyage + prix des circuits)</p><br/>
-    <button ng-click="processReservation();" class="waves-effect waves-light btn">Réserver</button>
+        <p> Prix TTC * : {{ prixtotal.prixto }} euros (prix ttc : prix du voyage + prix des circuits)</p><br/>
+        <button ng-click="processReservation();" class="waves-effect waves-light btn">Réserver</button>
+    </div>
+  </div>
 </div>
