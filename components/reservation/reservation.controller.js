@@ -31,18 +31,36 @@
 / RESERVATION
 */
 
+$scope.rows = [
+   {
+     nom: 'Nom du voyageur',
+     prenom: 'Prenom du voyageur',
+     naissance: 'Date de Naissance'
+   }
+ ];
+
+$scope.addRow = function() {
+  $scope.rows.push(
+    {
+      nom: 'Nom du voyageur',
+      prenom: 'Prenom du voyageur',
+      naissance: 'Date de Naissance'
+    }
+  );
+};
+
+$scope.processReservation = function() {
+  var index = 0;
+  $scope.rows.forEach(function (row) {
+      console.log('row #' + (index++) + ': ' + JSON.stringify(row));
+  });
+}
+
 /*
 
 Besoin de 3 champs : Nom, Prénom, Date de Naissance
 L'utilisateur ajoute dynamiquement le nombre de voyageur ( Du coup pour 2 voyageurs il y aura 2 fois les champs du dessus)
 Je dois ensuite récuperer le nom, prenom et date de naissance de chaque voyageur
-
-Proposition :
-
-Avant d'afficher les champs, demander le nombre de passager afin de pouvoir générer les champs en conséquences ?
-
-
-*/
 
 
 /*
