@@ -3,15 +3,12 @@
   'use strict';
 
   angular
-    .module('app', ['ui.router', 'ui.materialize', 'angular-loading-bar'])
+    .module('app', ['ui.router', 'ui.materialize'])
     .config(config);
 
-  config.$inject = ['$stateProvider', '$urlRouterProvider', 'cfpLoadingBarProvider'];
+  config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-  function config($stateProvider, $urlRouterProvider, cfpLoadingBarProvider) {
-
-    //cfpLoadingBarProvider.includeBar = false;
-    cfpLoadingBarProvider.latencyThreshold = 750;
+  function config($stateProvider, $urlRouterProvider) {
 
     $stateProvider
       .state('home', {
