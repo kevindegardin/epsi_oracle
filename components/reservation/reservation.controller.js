@@ -27,8 +27,9 @@
     // calcul du prix total a chaque ajout ou suppresion de passagers
     $scope.calculGrandTotal = function() {
       console.log("CalculGrandTotal");
-      var totaltaxe = $scope.rows.length * $scope.prixProcedure;
-      $scope.prixtotal = {totaltaxe};
+      var prixto = $scope.rows.length * $scope.prixProcedure;
+      console.log($scope.rows.length + $scope.prixProcedure);
+      $scope.prixtotal = {prixto};
     };
 
 /*
@@ -68,8 +69,8 @@ $http({
   .then(function successCallback(response) {
       if(response.status == 200) {
         $scope.prixProcedure = response.data[0].TOTAL;
-        var totaltaxe = $scope.rows.length * response.data[0].TOTAL;
-        $scope.prixtotal = {totaltaxe};
+        var prixto = $scope.rows.length * response.data[0].TOTAL;
+        $scope.prixtotal = {prixto};
       }
   },
   function errorCallback(response) {

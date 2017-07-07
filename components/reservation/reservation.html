@@ -35,31 +35,35 @@
       </div>
     </div>
 
-<<<<<<< HEAD
-    <h3>Voyageurs</h3>
     <div class="card">
+    <div class="title_row">
+      <h3>Voyageurs</h3>
+      <button class="btn red accent-2" type="button" ng-click="addRow(); calculGrandTotal()">Ajouter un voyageur</button>
+    </div>
 
-<div class="landing_cards">
-  <table>
-    <tr ng-repeat="row in rows">
-      <td><input type="text" ng-model="row.nom"/></td>
-      <td><input type="text" ng-model="row.prenom"/></td>
-      <td><input type="text" ng-model="row.naissance"/></td>
-    </tr>
-  </table>
+    <div class="card voyageur_card" ng-repeat="(key, row) in rows">
+      <h3>Voyageur {{ key + 1 }}</h3>
+      <div class="row">
+        <div class="col l4 m4 s12" input-field>
+          <input type="text" ng-model="row.nom">
+          <label>Nom</label>
+        </div>
+        <div class="col l4 m4 s12" input-field>
+          <input type="text" ng-model="row.prenom">
+          <label>Prénom</label>
+        </div>
+        <div class="col l4 m4 s12" input-field>
+          <input type="text" ng-model="row.naissance">
+          <label>Date de naissance</label>
+        </div>
+      </div>
+    </div>
 
-<<<<<<< HEAD
-    <button type="button" ng-click="addRow(); calculGrandTotal()">Ajouter un voyageur</button>
+    <div class="title_row">
+      <h3>Prix total dû: <span>{{ prixtotal.prixto }}€</span></h3>
+      <button ng-click="processReservation();" class="waves-effect waves-light btn red accent-2"> Valider la réservation</button>
+    </div>
 
-        <p> Prix TTC * : {{ prixtotal.totaltaxe }} euros (prix ttc : prix du voyage + prix des circuits)</p><br/>
-        <button ng-click="processReservation();" class="waves-effect waves-light btn">Réserver</button>
-=======
-    <button type="button" ng-click="addRow()">Ajouter un voyageur</button>
-<<<<<<< HEAD
->>>>>>> origin/master-->
-
-
->>>>>>> 612bb1633c3554d7e69f94a5d8029146659fc87e
     </div>
   </div>
 </div>
