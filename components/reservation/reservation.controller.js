@@ -44,7 +44,7 @@ $scope.rows = [
 $scope.addRow = function() {
   $scope.rows.push(
     {
-      NOM: 'Nom du voyageur',
+      nom: 'Nom du voyageur',
       prenom: 'Prenom du voyageur',
       naissance: 'Date de Naissance'
     }
@@ -73,7 +73,7 @@ $scope.processReservation = function() {
         method: 'POST',
         url: 'http://localhost:5000/newpassager/',
         data: JSON.stringify($scope.voyageur)
-      }, config);
+      },config);
   });
 }
 
