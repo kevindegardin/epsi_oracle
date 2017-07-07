@@ -73,6 +73,15 @@
         <div class="ui" ui-view></div>
       </div>
 
+      <footer class="page-footer red accent-2">
+        <div class="footer-copyright">
+          <div class="container">
+            EPSI Arras
+            <a class="grey-text text-lighten-4 right">© 2017 Codé avec ♥ par K.DEG | S.VIL | A.VIL | A.TEN</a>
+          </div>
+        </div>
+      </footer>
+
       <!-- Modal Login / Signin -->
       <div id="loginModal" class="modal loginModal">
         <div class="modal-content">
@@ -83,10 +92,10 @@
           <div id="login" class="col-lg-12">
             <form ng-submit="connect()">
               <input-field>
-                <input type="text" ng-model="userConnect.login" placeholder="Identifiant">
+                <input type="text" ng-model="userConnect.login" placeholder="Identifiant" required>
               </input-field>
               <input-field>
-                <input type="password" ng-model="userConnect.pwd" placeholder="Mot de passe">
+                <input type="password" ng-model="userConnect.pwd" placeholder="Mot de passe" required>
               </input-field>
               <button type="submit" class="modal-action modal-close waves-effect waves-light btn red accent-2">connexion</button>
             </form>
@@ -94,16 +103,16 @@
           <div id="signin" class="col-lg-12">
             <form ng-submit="inscription()">
               <input-field>
-                <input type="text" ng-model="userInscription.NOM" placeholder="Nom">
+                <input type="text" ng-model="userInscription.NOM" placeholder="Nom" required>
               </input-field>
               <input-field>
-                <input type="text" ng-model="userInscription.PRENOM" placeholder="Prénom">
+                <input type="text" ng-model="userInscription.PRENOM" placeholder="Prénom" required>
               </input-field>
               <input-field>
-                <input type="text" ng-model="userInscription.LOGIN" placeholder="Identifiant">
+                <input type="text" ng-model="userInscription.LOGIN" placeholder="Identifiant" required>
               </input-field>
               <input-field>
-                <input type="password" ng-model="userInscription.MDP" placeholder="Mot de passe">
+                <input type="password" ng-model="userInscription.MDP" placeholder="Mot de passe" required>
               </input-field>
               <button type="submit" class="waves-effect waves-light btn red accent-2">inscription</button>
             </form>
