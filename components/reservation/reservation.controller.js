@@ -37,20 +37,22 @@
 
 $scope.rows = [
    {
-     nom: 'Nom du voyageur',
-     prenom: 'Prenom du voyageur',
-     naissance: 'Date de Naissance'
+     nom: '',
+     prenom: '',
+     naissance: ''
    }
  ];
 
 $scope.addRow = function() {
   $scope.rows.push(
     {
-      nom: 'Nom du voyageur',
-      prenom: 'Prenom du voyageur',
-      naissance: 'Date de Naissance'
+      nom: '',
+      prenom: '',
+      naissance: ''
     }
   );
+
+  // $scope.calculGrandTotal();
 };
 
 var config = {

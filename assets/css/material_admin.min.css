@@ -193,6 +193,18 @@ nav #nav-mobile li a {
 .reservation_container p span {
   font-weight: 400;
 }
+.reservation_container .title_row {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.reservation_container .title_row button {
+  margin-left: auto;
+}
+.voyageur_card {
+  padding: 10px 35px;
+}
 .capitalize {
   text-transform: capitalize;
 }
