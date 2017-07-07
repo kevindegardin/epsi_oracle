@@ -66,12 +66,12 @@ $scope.processReservation = function() {
             'Content-Type': 'application/json'
           }
       }
-
+      
       $http({
         method: 'POST',
         url: 'http://localhost:5000/newpassager/',
         data: JSON.stringify($scope.voyageur)
-      }, config);
+      },config);
   });
 }
 
