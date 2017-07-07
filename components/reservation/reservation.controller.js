@@ -17,6 +17,8 @@
     // stock prix du voyage
     $scope.prixvoyage = [{}];
 
+    $scope.voyageur = {};
+
     // calcul du prix total a chaque ajout ou suppresion de passagers
     $scope.calculGrandTotal = function() {
       var totaltaxe = $scope.voyageurs.length * $scope.etapes[0].PRIXVISITE + $scope.etapes[1].PRIXVISITE;
@@ -42,7 +44,7 @@ $scope.rows = [
 $scope.addRow = function() {
   $scope.rows.push(
     {
-      nom: 'Nom du voyageur',
+      NOM: 'Nom du voyageur',
       prenom: 'Prenom du voyageur',
       naissance: 'Date de Naissance'
     }
@@ -53,6 +55,23 @@ $scope.processReservation = function() {
   var index = 0;
   $scope.rows.forEach(function (row) {
       console.log('row #' + (index++) + ': ' + JSON.stringify(row));
+      $scope.voyageur.IDPERSONNE = Math.floor((Math.random() * 5000)+1000);
+      $scope.voyageur.NOM = row.nom;
+      $scope.voyageur.PRENOM = row.prenom;
+      $scope.voyageur.DATENAISSANCE = row.naissance;
+
+      var config = {
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json'
+          }
+      }
+
+      $http({
+        method: 'POST',
+        url: 'http://localhost:5000/newpassager/',
+        data: JSON.stringify($scope.voyageur)
+      }, config);
   });
 }
 
