@@ -190,7 +190,7 @@ app.delete('/user_profiles/:IDUTILISATEUR',function (req,res){
 app.post('/user_profiles',function(req,res){
   "use strict";
   console.log(req.get('Content-Type'));
-  if("application/json" !== req.get('Content-Type')){
+  if("application/json;charset=UTF-8" !== req.get('Content-Type')){
     res.set('Content-Type','application/json').status(415).send(JSON.stringify({
       status: 415,
       message: "Wrong content type. Only application/json accepted",
