@@ -10,6 +10,11 @@
 
   function ReservationController($scope,$http,$stateParams) {
 
+    // /circuit/procedure/:IDCIRCUIT --> $stateParams.id
+
+
+
+      $scope.prixProcedure = [{}];
     // stock le prix total ( taxes + voyages )
     $scope.prixtotal = [{}];
     // stock total des taxes
@@ -21,12 +26,9 @@
 
     // calcul du prix total a chaque ajout ou suppresion de passagers
     $scope.calculGrandTotal = function() {
-      var totaltaxe = $scope.voyageurs.length * $scope.etapes[0].PRIXVISITE + $scope.etapes[1].PRIXVISITE;
-      $scope.totaltax = {totaltaxe};
-
-      var totalvoyage = $scope.voyageurs.length * $scope.threeDestinations[0].PRIX ;
-      var prixto = totaltaxe + totalvoyage;
-      $scope.prixtotal = {prixto};
+      console.log("CalculGrandTotal");
+      var totaltaxe = $scope.rows.length * $scope.prixProcedure;
+      $scope.prixtotal = {totaltaxe};
     };
 
 /*
@@ -50,6 +52,28 @@ $scope.addRow = function() {
     }
   );
 };
+
+var config = {
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
+}
+
+$http({
+    method: 'GET',
+    url: 'http://localhost:5000/circuit/procedure/'+$stateParams.id
+  }, config)
+  .then(function successCallback(response) {
+      if(response.status == 200) {
+        $scope.prixProcedure = response.data[0].TOTAL;
+        var totaltaxe = $scope.rows.length * response.data[0].TOTAL;
+        $scope.prixtotal = {totaltaxe};
+      }
+  },
+  function errorCallback(response) {
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+  });
 
 $scope.processReservation = function() {
   var index = 0;

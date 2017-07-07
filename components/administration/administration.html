@@ -9,6 +9,7 @@
   <div class="row">
     <div ng-show = "IsVisibleUsers">
       <a class="waves-effect waves-light btn red accent-2" ng-click="addUsers()">Ajouter un utilisateur</a>
+      <a class="waves-effect waves-light btn red accent-2" ng-click="modifyUsers()">Modifier un utilisateur</a>
       <a class="waves-effect waves-light btn red accent-2" ng-click="deleteUsers()">Supprimer un utilisateur</a>
     </div>
   </div>
@@ -44,6 +45,18 @@
         </select>
       </div>
       <button type="submit" ng-click="confirmDelete()" class="waves-effect waves-light btn red accent-2">Supprimer l'utilisateur</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div ng-show = "IsVisibleEditUserStep1">
+      <p> Modifier un utilisateur </p>
+      <div input-field>
+        <select ng-model="select" watch class=""  material-select>
+          <option value="{{ value.IDPERSONNE }}" ng-repeat="value in threeDestinations">{{value.NOM}} {{ value.PRENOM }}</option>
+        </select>
+      </div>
+      <button type="submit" ng-click="confirmEdit()" class="waves-effect waves-light btn red accent-2">Selectionner</button>
     </div>
   </div>
 

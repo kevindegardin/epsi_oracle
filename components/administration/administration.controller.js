@@ -15,10 +15,15 @@
 
     // BUTTONS
     $scope.IsVisibleUsers = false;
+    $scope.IsVisibleEditUserStep1 = false;
+    
     $scope.ShowHideUsers = function () {
 
       $scope.IsVisibleAddUser = false;
       $scope.IsVisibleDeleteUser = false;
+      $scope.IsVisibleEditUserStep1 = false;
+      $scope.IsVisibleEditUserStep2 = false;
+
       //If DIV is visible it will be hidden and vice versa.
       $scope.IsVisibleUsers = $scope.IsVisibleUsers ? false : true;
     }
@@ -27,6 +32,11 @@
     $scope.addUsers = function () {
       //If DIV is visible it will be hidden and vice versa.
       $scope.IsVisibleAddUser = $scope.IsVisibleAddUser ? false : true;
+      $scope.IsVisibleUsers = false;
+    }
+
+    $scope.modifyUsers = function() {
+      $scope.IsVisibleEditUserStep1 = $scope.IsVisibleEditUserStep1 ? false : true;
       $scope.IsVisibleUsers = false;
     }
 
@@ -51,6 +61,10 @@
       }, config);
 
     };
+
+    $scope.IsVisibleEditUserStep1 = function () {
+
+    }
 
     $scope.deleteUsers = function () {
       //If DIV is visible it will be hidden and vice versa.

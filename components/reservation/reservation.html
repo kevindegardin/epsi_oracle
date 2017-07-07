@@ -40,7 +40,6 @@
     </div>
 
     <h3>Voyageurs</h3>
-    <button type="button" ng-click="addRow()">Ajouter un voyageur</button>
     <div class="card">
 
 <div class="landing_cards">
@@ -52,9 +51,9 @@
     </tr>
   </table>
 
-    <button type="button" ng-click="addRow()">Ajouter un voyageur</button>
+    <button type="button" ng-click="addRow(); calculGrandTotal()">Ajouter un voyageur</button>
 
-        <p> Prix TTC * : {{ prixtotal.prixto }} euros (prix ttc : prix du voyage + prix des circuits)</p><br/>
+        <p> Prix TTC * : {{ prixtotal.totaltaxe }} euros (prix ttc : prix du voyage + prix des circuits)</p><br/>
         <button ng-click="processReservation();" class="waves-effect waves-light btn">Réserver</button>
     </div>
   </div>

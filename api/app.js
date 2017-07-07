@@ -185,6 +185,50 @@ app.delete('/user_profiles/:IDUTILISATEUR',function (req,res){
 });
 
 /////////////////////
+// GET PRIX CIRCUIT - PROCEDURE
+////////////////////
+app.get('/circuit/procedure/:IDCIRCUIT',function (req,res){
+  "use strict";
+
+  oracledb.getConnection(connAttrs, function(err,connection){
+    if(err){
+      res.set('Content-Type','application/json');
+      res.status(500).send(JSON.stringify({
+        status:500,
+        message: "Error connecting DB",
+        detailed_message: err.message
+      }));
+      return;
+    }
+
+    connection.execute("SELECT \"KAS-PROJET-BDD\".prixTotalCircuit(:IDCIRCUIT) AS total from dual",[req.params.IDCIRCUIT],{
+        outFormat: oracledb.OBJECT
+    }, function(err,result){
+          if(err || result.rows.length <1){
+            res.set('Content-Type','application/json');
+            var status = err ? 500 : 404;
+            res.status(status).send(JSON.stringify({
+              status:status,
+              message: err ? "Error getting prix total" : "Circuit doesn't exist",
+              detailed_message: err ? err.message : ""
+            }));
+          }else{
+            res.contentType('application/json').status(200).send(JSON.stringify(result.rows));
+            console.log("[" + time() + "] - getOneUser : success" + JSON.stringify(result.rows));
+          }
+          connection.release(
+            function(err){
+              if(err){
+                console.log(err.message);
+              }else{
+                console.log("GET /user/"+req.params.LOGIN + " : connection released");
+              }
+            });
+          });
+       });
+});
+
+/////////////////////
 // INSERT NEW USER
 ////////////////////
 app.post('/user_profiles',function(req,res){
